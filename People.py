@@ -157,6 +157,7 @@ class ListMaker(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-	server_address = ('', 8000)
-	httpd = HTTPServer(server_address, ListMaker)
-	httpd.serve_forever()
+  port = int(os.environ.get('PORT', 8000)) # Use port if it there...
+  server_address = ('', port)
+  httpd = HTTPServer(server_address, ListMaker)
+  httpd.serve_forever()
